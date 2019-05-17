@@ -25,8 +25,8 @@ function autovenv --on-variable PWD -d "Automatic activation of Python virtual e
     # instead of just checking the CWD to handle cases where the user moves into a sub-directory of the venv.
     for _dir in (string split -n '/' "$PWD")
         set -l _tree "$_tree/$_dir"
-        if test -e "$_tree/bin/activate.fish"
-            set _source "$_tree/bin/activate.fish"
+        if test -e "$_tree/venv/bin/activate.fish"
+            set _source "$_tree/venv/bin/activate.fish"
             if test "$autovenv_announce" = "yes"
                 set -g __autovenv_old $__autovenv_new
                 set -g __autovenv_new (basename $_tree)
